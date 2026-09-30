@@ -1,0 +1,571 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Custom 77 Welding and Woodwork — Redesign Prototype</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            warm: {
+              50: '#F8F6F3',
+              100: '#F1EEE9',
+              200: '#E5E2DC',
+              800: '#3D3A36',
+              900: '#1A1A1A',
+            },
+            steel: {
+              400: '#8A9199',
+              500: '#6B7280',
+              600: '#4B5563',
+            },
+            wood: {
+              400: '#C4A484',
+              500: '#A67C52',
+              600: '#8B6914',
+            }
+          },
+          fontFamily: {
+            sans: ['Inter', 'system-ui', '-apple-system', 'sans-serif'],
+            display: ['Inter', 'system-ui', 'sans-serif'],
+          },
+          letterSpacing: {
+            tighter: '-0.03em',
+            tight: '-0.02em',
+          }
+        }
+      }
+    }
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    html { scroll-behavior: smooth; }
+    body { font-feature-settings: "ss01", "ss02"; }
+    .text-balance { text-wrap: balance; }
+    /* Subtle focus styles */
+    a:focus-visible, button:focus-visible {
+      outline: 2px solid #1A1A1A;
+      outline-offset: 3px;
+    }
+    /* Image treatment */
+    .img-cover { object-fit: cover; }
+    /* Custom selection */
+    ::selection { background: #E5E2DC; color: #1A1A1A; }
+  </style>
+</head>
+<body class="bg-warm-50 text-warm-900 antialiased">
+
+  <!-- ========== HEADER ========== -->
+  <header id="header" class="fixed top-0 left-0 right-0 z-50 bg-warm-50/95 backdrop-blur-sm border-b border-warm-200/60 transition-all duration-300">
+    <div class="max-w-7xl mx-auto px-5 sm:px-8 h-16 md:h-20 flex items-center justify-between">
+      <!-- Logo -->
+      <a href="#hero" class="flex items-center shrink-0" aria-label="Custom 77 Home">
+        <img 
+          src="custom77-logo.png" 
+          alt="Custom 77 logo" 
+          class="h-9 md:h-10 w-auto object-contain"
+          height="40"
+        />
+      </a>
+
+      <!-- Desktop Nav -->
+      <nav class="hidden md:flex items-center gap-8 text-sm font-medium text-warm-800">
+        <a href="#work" class="hover:text-warm-900 transition-colors">Work</a>
+        <a href="#services" class="hover:text-warm-900 transition-colors">Services</a>
+        <a href="#process" class="hover:text-warm-900 transition-colors">Process</a>
+        <a href="#about" class="hover:text-warm-900 transition-colors">About</a>
+        <a href="#contact" class="hover:text-warm-900 transition-colors">Contact</a>
+      </nav>
+
+      <!-- Primary CTA + Mobile Menu Toggle -->
+      <div class="flex items-center gap-3">
+        <a href="#contact" class="hidden sm:inline-flex items-center justify-center px-5 py-2.5 bg-warm-900 text-white text-sm font-medium rounded-sm hover:bg-warm-800 transition-colors">
+          Start a Project
+        </a>
+        <!-- Mobile hamburger -->
+        <button id="menuBtn" class="md:hidden p-2 -mr-2" aria-label="Open menu">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 6h16M4 12h16M4 18h16"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Menu -->
+    <div id="mobileMenu" class="hidden md:hidden border-t border-warm-200 bg-warm-50">
+      <nav class="px-5 py-6 flex flex-col gap-4 text-base font-medium">
+        <a href="#work" class="py-2">Work</a>
+        <a href="#services" class="py-2">Services</a>
+        <a href="#process" class="py-2">Process</a>
+        <a href="#about" class="py-2">About</a>
+        <a href="#contact" class="py-2">Contact</a>
+        <a href="#contact" class="mt-2 inline-flex items-center justify-center px-5 py-3 bg-warm-900 text-white text-sm font-medium rounded-sm">
+          Start a Project
+        </a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ========== HERO ========== -->
+  <section id="hero" class="relative pt-20 md:pt-24 min-h-[90vh] md:min-h-screen flex items-center">
+    <div class="max-w-7xl mx-auto px-5 sm:px-8 w-full grid lg:grid-cols-12 gap-10 lg:gap-16 items-center py-12 md:py-20">
+      
+      <!-- Text Column -->
+      <div class="lg:col-span-5 order-2 lg:order-1">
+        <p class="text-sm font-medium tracking-wide text-steel-500 uppercase mb-4">
+          Custom Furniture &amp; Metalwork · Denver
+        </p>
+        <h1 class="font-display text-4xl sm:text-5xl lg:text-[3.4rem] font-semibold leading-[1.1] tracking-tight text-warm-900 text-balance mb-6">
+          Built to fit.<br>Built to last.
+        </h1>
+        <p class="text-lg text-warm-800/90 leading-relaxed mb-8 max-w-md">
+          Handcrafted steel and hardwood furniture for homes and small businesses. Measured for your space. Made without compromise.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-3">
+          <a href="#contact" class="inline-flex items-center justify-center px-7 py-3.5 bg-warm-900 text-white text-sm font-medium rounded-sm hover:bg-warm-800 transition-colors">
+            Start a Custom Project
+          </a>
+          <a href="https://custom77co.etsy.com/" target="_blank" rel="noopener" class="inline-flex items-center justify-center px-7 py-3.5 border border-warm-900/20 text-warm-900 text-sm font-medium rounded-sm hover:bg-warm-100 transition-colors">
+            Shop Ready-Made
+          </a>
+        </div>
+        <p class="mt-6 text-sm text-steel-500">
+          Or call / text <a href="tel:3036187437" class="text-warm-900 font-medium hover:underline">303-618-7437</a>
+        </p>
+      </div>
+
+      <!-- Image Column -->
+      <div class="lg:col-span-7 order-1 lg:order-2">
+        <div class="relative aspect-[4/3] md:aspect-[5/4] overflow-hidden rounded-sm bg-warm-200">
+          <!-- Using a strong existing image from the site -->
+          <img 
+            src="https://77co.carrd.co/assets/images/gallery03/d5c99dbc.jpg?v=474c589a" 
+            alt="Custom wood and steel console table with geometric metal base in a modern interior"
+            class="w-full h-full img-cover"
+            width="800" height="640"
+          />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== FEATURED WORK ========== -->
+  <section id="work" class="py-20 md:py-28 bg-white">
+    <div class="max-w-7xl mx-auto px-5 sm:px-8">
+      <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-4 mb-12 md:mb-16">
+        <div>
+          <p class="text-sm font-medium tracking-wide text-steel-500 uppercase mb-2">Selected Work</p>
+          <h2 class="font-display text-3xl md:text-4xl font-semibold tracking-tight text-warm-900">
+            Pieces that hold up
+          </h2>
+        </div>
+        <a href="https://custom77co.etsy.com/" target="_blank" rel="noopener" class="text-sm font-medium text-warm-900 underline underline-offset-4 decoration-warm-300 hover:decoration-warm-900 transition-colors">
+          View all on Etsy →
+        </a>
+      </div>
+
+      <!-- Gallery Grid -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-6">
+        <!-- Item 1 -->
+        <figure class="group">
+          <div class="aspect-[4/5] overflow-hidden bg-warm-100 rounded-sm mb-4">
+            <img src="https://77co.carrd.co/assets/images/gallery01/1dc0c8e6.jpg?v=474c589a" alt="Custom side table with drawers and steel frame" class="w-full h-full img-cover group-hover:scale-[1.03] transition-transform duration-500" loading="lazy">
+          </div>
+          <figcaption>
+            <p class="font-medium text-warm-900">Entry Console with Storage</p>
+            <p class="text-sm text-steel-500 mt-0.5">Hardwood · Steel frame</p>
+          </figcaption>
+        </figure>
+
+        <!-- Item 2 -->
+        <figure class="group">
+          <div class="aspect-[4/5] overflow-hidden bg-warm-100 rounded-sm mb-4">
+            <img src="https://77co.carrd.co/assets/images/gallery01/657fae6d.jpg?v=474c589a" alt="Modern console table with white geometric metal base" class="w-full h-full img-cover group-hover:scale-[1.03] transition-transform duration-500" loading="lazy">
+          </div>
+          <figcaption>
+            <p class="font-medium text-warm-900">Geometric Console</p>
+            <p class="text-sm text-steel-500 mt-0.5">Solid wood · Powder-coated steel</p>
+          </figcaption>
+        </figure>
+
+        <!-- Item 3 -->
+        <figure class="group">
+          <div class="aspect-[4/5] overflow-hidden bg-warm-100 rounded-sm mb-4">
+            <img src="https://77co.carrd.co/assets/images/gallery01/3b75c350.jpg?v=474c589a" alt="Live-edge coffee table with black steel legs" class="w-full h-full img-cover group-hover:scale-[1.03] transition-transform duration-500" loading="lazy">
+          </div>
+          <figcaption>
+            <p class="font-medium text-warm-900">Live-Edge Coffee Table</p>
+            <p class="text-sm text-steel-500 mt-0.5">Natural edge hardwood · Steel</p>
+          </figcaption>
+        </figure>
+
+        <!-- Item 4 -->
+        <figure class="group">
+          <div class="aspect-[4/5] overflow-hidden bg-warm-100 rounded-sm mb-4">
+            <img src="https://77co.carrd.co/assets/images/gallery01/d2c11f44.jpg?v=474c589a" alt="Side table with cowhide and metal base" class="w-full h-full img-cover group-hover:scale-[1.03] transition-transform duration-500" loading="lazy">
+          </div>
+          <figcaption>
+            <p class="font-medium text-warm-900">C-Side Table</p>
+            <p class="text-sm text-steel-500 mt-0.5">Hardwood · Minimal steel base</p>
+          </figcaption>
+        </figure>
+
+        <!-- Item 5 -->
+        <figure class="group">
+          <div class="aspect-[4/5] overflow-hidden bg-warm-100 rounded-sm mb-4">
+            <img src="https://77co.carrd.co/assets/images/gallery01/46585129.jpg?v=474c589a" alt="Floating shelf detail with metal brackets" class="w-full h-full img-cover group-hover:scale-[1.03] transition-transform duration-500" loading="lazy">
+          </div>
+          <figcaption>
+            <p class="font-medium text-warm-900">Floating Shelf System</p>
+            <p class="text-sm text-steel-500 mt-0.5">Solid hardwood · Steel supports</p>
+          </figcaption>
+        </figure>
+
+        <!-- Item 6 -->
+        <figure class="group">
+          <div class="aspect-[4/5] overflow-hidden bg-warm-100 rounded-sm mb-4">
+            <img src="https://77co.carrd.co/assets/images/gallery01/77f5d0e1.jpg?v=474c589a" alt="Detail of wood and steel joinery" class="w-full h-full img-cover group-hover:scale-[1.03] transition-transform duration-500" loading="lazy">
+          </div>
+          <figcaption>
+            <p class="font-medium text-warm-900">Detail — Joinery &amp; Finish</p>
+            <p class="text-sm text-steel-500 mt-0.5">No veneers · Durable finishes</p>
+          </figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== WHAT WE BUILD ========== -->
+  <section id="services" class="py-20 md:py-28 bg-warm-50">
+    <div class="max-w-7xl mx-auto px-5 sm:px-8">
+      <div class="max-w-2xl mb-14">
+        <p class="text-sm font-medium tracking-wide text-steel-500 uppercase mb-2">What We Specialize In</p>
+        <h2 class="font-display text-3xl md:text-4xl font-semibold tracking-tight text-warm-900 mb-5">
+          From one-of-a-kind tables to architectural steel
+        </h2>
+        <p class="text-lg text-warm-800/90 leading-relaxed">
+          We design and build functional pieces that stand the test of time. Serving the Denver area and beyond.
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-8 md:gap-10">
+        <!-- Card 1 -->
+        <div class="border-t border-warm-300 pt-6">
+          <h3 class="font-display text-xl font-semibold text-warm-900 mb-3">Custom Furniture</h3>
+          <p class="text-warm-800/90 leading-relaxed mb-4">
+            Tables, benches, consoles, shelves, and storage built to fit your exact space. No off-the-shelf compromises.
+          </p>
+          <p class="text-sm text-steel-500">Residential &amp; small commercial</p>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="border-t border-warm-300 pt-6">
+          <h3 class="font-display text-xl font-semibold text-warm-900 mb-3">Architectural Metalwork</h3>
+          <p class="text-warm-800/90 leading-relaxed mb-4">
+            Steel handrails, railings, and structural details. Clean lines, solid construction, finished for interior or exterior use.
+          </p>
+          <p class="text-sm text-steel-500">Measured, fabricated, installed</p>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="border-t border-warm-300 pt-6">
+          <h3 class="font-display text-xl font-semibold text-warm-900 mb-3">Ready-Made Collection</h3>
+          <p class="text-warm-800/90 leading-relaxed mb-4">
+            A rotating selection of finished pieces available now on Etsy. Same materials, same standards, ready to ship.
+          </p>
+          <a href="https://custom77co.etsy.com/" target="_blank" rel="noopener" class="inline-flex items-center text-sm font-medium text-warm-900 underline underline-offset-4 decoration-warm-300 hover:decoration-warm-900">
+            Shop the collection →
+          </a>
+        </div>
+      </div>
+
+      <!-- Key differentiators -->
+      <div class="mt-16 md:mt-20 grid sm:grid-cols-3 gap-6 p-8 md:p-10 bg-white rounded-sm border border-warm-200">
+        <div>
+          <p class="font-medium text-warm-900 mb-1">Built-to-fit</p>
+          <p class="text-sm text-warm-800/80">We work with your space, not against it. Every piece is measured, designed, and finished for your home or business.</p>
+        </div>
+        <div>
+          <p class="font-medium text-warm-900 mb-1">No shortcuts</p>
+          <p class="text-sm text-warm-800/80">No veneers. No cheap fasteners. Just solid hardwood, raw or finished steel, and durable finishes that hold up.</p>
+        </div>
+        <div>
+          <p class="font-medium text-warm-900 mb-1">Local maker</p>
+          <p class="text-sm text-warm-800/80">Designed and built in the Denver metro by a single craftsman with 12+ years in metal fabrication and woodworking.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== MATERIALS / CRAFT ========== -->
+  <section class="py-20 md:py-28 bg-white overflow-hidden">
+    <div class="max-w-7xl mx-auto px-5 sm:px-8">
+      <div class="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+        <div>
+          <p class="text-sm font-medium tracking-wide text-steel-500 uppercase mb-2">Materials &amp; Craft</p>
+          <h2 class="font-display text-3xl md:text-4xl font-semibold tracking-tight text-warm-900 mb-6">
+            Pure materials.<br>Honest techniques.
+          </h2>
+          <p class="text-lg text-warm-800/90 leading-relaxed mb-6">
+            Custom 77 blends metalwork with woodwork to create sleek, modern furniture with a rustic touch. The goal is simple: pieces that are not just beautiful, but built to last — classic yet innovative.
+          </p>
+          <ul class="space-y-3 text-warm-800/90">
+            <li class="flex gap-3">
+              <span class="text-steel-500 mt-1">—</span>
+              <span>Solid hardwood (no veneers or particle board)</span>
+            </li>
+            <li class="flex gap-3">
+              <span class="text-steel-500 mt-1">—</span>
+              <span>Raw or powder-coated steel frames and details</span>
+            </li>
+            <li class="flex gap-3">
+              <span class="text-steel-500 mt-1">—</span>
+              <span>Durable, honest finishes that age well</span>
+            </li>
+            <li class="flex gap-3">
+              <span class="text-steel-500 mt-1">—</span>
+              <span>Joinery and welding done to last decades</span>
+            </li>
+          </ul>
+        </div>
+        <div class="relative">
+          <div class="aspect-[4/5] overflow-hidden rounded-sm bg-warm-100">
+            <img 
+              src="https://77co.carrd.co/assets/images/gallery02/3f921977.jpg?v=474c589a" 
+              alt="Close detail of hardwood surface and steel structure"
+              class="w-full h-full img-cover"
+              loading="lazy"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== PROCESS ========== -->
+  <section id="process" class="py-20 md:py-28 bg-warm-50">
+    <div class="max-w-7xl mx-auto px-5 sm:px-8">
+      <div class="max-w-2xl mb-14">
+        <p class="text-sm font-medium tracking-wide text-steel-500 uppercase mb-2">How It Works</p>
+        <h2 class="font-display text-3xl md:text-4xl font-semibold tracking-tight text-warm-900">
+          From conversation to finished piece
+        </h2>
+      </div>
+
+      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-6">
+        <div class="relative">
+          <div class="text-5xl font-display font-semibold text-warm-200 mb-4">01</div>
+          <h3 class="font-semibold text-lg text-warm-900 mb-2">Conversation</h3>
+          <p class="text-warm-800/90 text-sm leading-relaxed">
+            Tell us about the space, the function, and any ideas you already have. No pressure — just a clear starting point.
+          </p>
+        </div>
+        <div class="relative">
+          <div class="text-5xl font-display font-semibold text-warm-200 mb-4">02</div>
+          <h3 class="font-semibold text-lg text-warm-900 mb-2">Design &amp; Measure</h3>
+          <p class="text-warm-800/90 text-sm leading-relaxed">
+            We refine the concept, confirm dimensions, and lock in materials and finishes that suit the piece and the room.
+          </p>
+        </div>
+        <div class="relative">
+          <div class="text-5xl font-display font-semibold text-warm-200 mb-4">03</div>
+          <h3 class="font-semibold text-lg text-warm-900 mb-2">Build</h3>
+          <p class="text-warm-800/90 text-sm leading-relaxed">
+            Fabrication happens in the shop. Solid wood, clean welds, careful finishing. Progress updates along the way.
+          </p>
+        </div>
+        <div class="relative">
+          <div class="text-5xl font-display font-semibold text-warm-200 mb-4">04</div>
+          <h3 class="font-semibold text-lg text-warm-900 mb-2">Deliver</h3>
+          <p class="text-warm-800/90 text-sm leading-relaxed">
+            Local delivery and install available in the Denver area. Distant projects ship carefully packed and tracked.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== ABOUT ========== -->
+  <section id="about" class="py-20 md:py-28 bg-white">
+    <div class="max-w-7xl mx-auto px-5 sm:px-8">
+      <div class="grid lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+        <div class="lg:col-span-5">
+          <div class="aspect-[4/5] overflow-hidden rounded-sm bg-warm-100">
+            <!-- Using a real image that includes the maker if available, otherwise a strong piece -->
+            <img 
+              src="https://77co.carrd.co/assets/images/gallery01/1dc0c8e6.jpg?v=474c589a" 
+              alt="Geoff Boen with a custom piece in the workshop or home setting"
+              class="w-full h-full img-cover"
+              loading="lazy"
+            />
+          </div>
+        </div>
+        <div class="lg:col-span-7">
+          <p class="text-sm font-medium tracking-wide text-steel-500 uppercase mb-2">The Maker</p>
+          <h2 class="font-display text-3xl md:text-4xl font-semibold tracking-tight text-warm-900 mb-6">
+            Hi, I’m Geoff.
+          </h2>
+          <div class="prose prose-lg text-warm-800/90 max-w-xl space-y-4">
+            <p>
+              I’m the maker behind Custom 77. With more than 12 years of experience in metal fabrication and woodworking, I started this shop because I believe furniture should be built to last — durable, timeless, affordable, and designed with purpose.
+            </p>
+            <p>
+              Every piece leaves the shop under my name. That means no production shortcuts and a direct line of communication from the first conversation to final delivery.
+            </p>
+          </div>
+          <p class="mt-8 text-sm text-steel-500">
+            Based in Thornton / Denver, Colorado
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== TESTIMONIALS ========== -->
+  <section class="py-20 md:py-28 bg-warm-50">
+    <div class="max-w-7xl mx-auto px-5 sm:px-8">
+      <div class="max-w-2xl mb-14">
+        <p class="text-sm font-medium tracking-wide text-steel-500 uppercase mb-2">Client Notes</p>
+        <h2 class="font-display text-3xl md:text-4xl font-semibold tracking-tight text-warm-900">
+          What people say
+        </h2>
+      </div>
+
+      <div class="grid md:grid-cols-2 gap-8 md:gap-12">
+        <blockquote class="border-l-2 border-warm-300 pl-6">
+          <p class="text-lg text-warm-900 leading-relaxed mb-4">
+            “Dealing with Geoff Boen of Custom 77 is a treat. His craftsmanship is just superb as is his customer service. I bought two end tables — arrived on time, very well packed. I will be looking out for more innovations from Custom 77.”
+          </p>
+          <cite class="text-sm text-steel-500 not-italic">— Jacki, Etsy customer</cite>
+        </blockquote>
+
+        <blockquote class="border-l-2 border-warm-300 pl-6">
+          <p class="text-lg text-warm-900 leading-relaxed mb-4">
+            “High-quality work at a fair, affordable price. The beauty is in the details.”
+          </p>
+          <cite class="text-sm text-steel-500 not-italic">— Etsy review</cite>
+        </blockquote>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== FINAL CTA ========== -->
+  <section id="contact" class="py-20 md:py-32 bg-warm-900 text-white">
+    <div class="max-w-7xl mx-auto px-5 sm:px-8">
+      <div class="grid lg:grid-cols-12 gap-12 lg:gap-16 items-start">
+        <div class="lg:col-span-6">
+          <h2 class="font-display text-3xl sm:text-4xl md:text-5xl font-semibold tracking-tight leading-tight mb-6">
+            Let’s get started with your next piece
+          </h2>
+          <p class="text-lg text-white/80 leading-relaxed max-w-md mb-8">
+            Ready to have something built, or just want to talk through an idea? No pressure. Just real answers and a good place to begin.
+          </p>
+          <div class="flex flex-col sm:flex-row gap-3">
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLSeZ6dHUaIx5ki8U7bWVPem8syNlvcv-2caNoJOqcgfA0ppNyQ/viewform" target="_blank" rel="noopener" class="inline-flex items-center justify-center px-7 py-3.5 bg-white text-warm-900 text-sm font-medium rounded-sm hover:bg-warm-100 transition-colors">
+              Start a Custom Project
+            </a>
+            <a href="https://custom77co.etsy.com/" target="_blank" rel="noopener" class="inline-flex items-center justify-center px-7 py-3.5 border border-white/30 text-white text-sm font-medium rounded-sm hover:bg-white/10 transition-colors">
+              Shop Ready-Made
+            </a>
+          </div>
+        </div>
+
+        <div class="lg:col-span-5 lg:col-start-8">
+          <div class="space-y-6">
+            <div>
+              <p class="text-sm text-white/60 uppercase tracking-wide mb-1">Call or Text</p>
+              <a href="tel:3036187437" class="text-2xl font-medium hover:underline">303-618-7437</a>
+            </div>
+            <div>
+              <p class="text-sm text-white/60 uppercase tracking-wide mb-1">Email</p>
+              <a href="mailto:custom77co@gmail.com" class="text-lg hover:underline">custom77co@gmail.com</a>
+            </div>
+            <div>
+              <p class="text-sm text-white/60 uppercase tracking-wide mb-1">Location</p>
+              <p class="text-lg">Thornton / Denver, Colorado<br>Serving the Front Range &amp; beyond</p>
+            </div>
+            <div class="pt-4 flex gap-5">
+              <a href="https://www.instagram.com/custom77co/" target="_blank" rel="noopener" class="text-white/70 hover:text-white transition-colors" aria-label="Instagram">
+                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+              </a>
+              <a href="https://custom77co.etsy.com/" target="_blank" rel="noopener" class="text-white/70 hover:text-white transition-colors" aria-label="Etsy">
+                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M8.559 3.25c-.279 0-.503.045-.67.134-.167.09-.294.213-.383.37-.09.157-.144.336-.163.537-.02.2-.029.414-.029.64v.047c0 .10.0.1.4.10.0.2.5.546.546.546h.1c.192.168.2.5.546-.546.05-.05.075-.12.075-.211v-.047c0-.226-.01-.44-.029-.64-.02-.201-.074-.38-.163-.537-.09-.157-.216-.28-.383-.37-.167-.09-.391-.134-.67-.134h-.4zm-2.3 1.6c.10.0.0.5.10.0.1.2.192.168.0.3.10.0.1.3.043.425 0 .226-.01.44-.029.64-.02.201-.074.38-.163.537-.09.157-.216.28-.383.37-.167.09-.391.134-.67.134h-.4c-.279 0-.503-.045-.67-.134-.167-.09-.294-.213-.383-.37-.09-.157-.144-.336-.163-.537-.02-.2-.029-.414-.029-.64v-.047c0-.091.025-.161.075-.211.05-.05.12-.075.211-.075h.1c.226 0 .42.182.546.546.05.05.075.12.075.211v.047c0 .226.01.44.029.64.02.201.074.38.163.537.09.157.216.28.383.37.167.09.391.134.67.134h.4c.279 0 .503-.045.67-.134.167-.09.294-.213.383-.37.09-.157.144-.336.163-.537.02-.2.029-.414.029-.64v-.047c0-.091-.025-.161-.075-.211-.05-.05-.12-.075-.211-.075h-.1c-.226 0-.42-.182-.546-.546-.05-.05-.075-.12-.075-.211z"/></svg>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== FOOTER ========== -->
+  <footer class="py-10 bg-warm-900 text-white/60 border-t border-white/10">
+    <div class="max-w-7xl mx-auto px-5 sm:px-8 flex flex-col md:flex-row md:items-center md:justify-between gap-6">
+      <div>
+        <p class="font-medium text-white mb-1">Custom 77 Welding and Woodwork</p>
+        <p class="text-sm">Handcrafted in Colorado</p>
+      </div>
+      <div class="text-sm">
+        <p>We respect your privacy. Information shared is used only to respond to your inquiry.</p>
+      </div>
+      <div class="text-sm">
+        © 2026 Custom 77
+      </div>
+    </div>
+  </footer>
+
+  <!-- Sticky Mobile CTA (appears after scroll) -->
+  <div id="stickyCta" class="fixed bottom-0 left-0 right-0 z-40 p-3 bg-warm-50/95 backdrop-blur border-t border-warm-200 md:hidden translate-y-full transition-transform duration-300">
+    <div class="flex gap-2">
+      <a href="tel:3036187437" class="flex-1 inline-flex items-center justify-center py-3 bg-white border border-warm-300 text-warm-900 text-sm font-medium rounded-sm">
+        Call / Text
+      </a>
+      <a href="#contact" class="flex-1 inline-flex items-center justify-center py-3 bg-warm-900 text-white text-sm font-medium rounded-sm">
+        Start Project
+      </a>
+    </div>
+  </div>
+
+  <script>
+    // Mobile menu toggle
+    const menuBtn = document.getElementById('menuBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+    menuBtn?.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+    });
+
+    // Close mobile menu on link click
+    mobileMenu?.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => mobileMenu.classList.add('hidden'));
+    });
+
+    // Sticky mobile CTA
+    const stickyCta = document.getElementById('stickyCta');
+    let lastScroll = 0;
+    window.addEventListener('scroll', () => {
+      const current = window.scrollY;
+      if (current > 600) {
+        stickyCta.classList.remove('translate-y-full');
+      } else {
+        stickyCta.classList.add('translate-y-full');
+      }
+      lastScroll = current;
+    });
+
+    // Header background on scroll
+    const header = document.getElementById('header');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 20) {
+        header.classList.add('shadow-sm');
+      } else {
+        header.classList.remove('shadow-sm');
+      }
+    });
+  </script>
+</body>
+</html>
